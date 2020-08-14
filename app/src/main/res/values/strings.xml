@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">W05-MyFirstIntent</string>
+    <string name="activityMaths_multiplySymbol">X</string>
+    <string name="activityMaths_firstInput">First Value</string>
+    <string name="activityMaths_secondInput">Second Value</string>
+    <string name="activityDetail_toMathBtn">GOTO TIMES TABLES</string>
+    <string name="mathsActivity_calculateBtn">Calculate</string>
+    <string name="calculatedMathsActivity_placeholderTextView">ANSWER</string>
 </resources>
