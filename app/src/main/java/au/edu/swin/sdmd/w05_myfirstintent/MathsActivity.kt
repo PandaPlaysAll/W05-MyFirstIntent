@@ -76,8 +76,10 @@ class MathsActivity : AppCompatActivity() {
         calculateButton.setOnClickListener {
             var calculation = calculateValues()
             if (calculation == null) {
-                Toast.makeText(this.parent, "Invalid Input", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+                Toast.makeText(this, "Invalid Input", Toast.LENGTH_SHORT).show()
+                firstInput.text!!.clear()
+                secondInput.text!!.clear()
+                return@setOnClickListener //not needed as fragments checks for null. 
             }
 
             var bundle = Bundle()
