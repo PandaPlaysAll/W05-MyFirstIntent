@@ -23,15 +23,18 @@
         android:weightSum="3"
         android:layout_weight="8">
 
-        <TextView
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/activityMaths_firstInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
+            android:inputType="number"
             android:gravity="center"
             android:textSize="@dimen/text_size_default"
-            tools:text="@string/activityMaths_firstInput" />
+            android:hint="@string/activityMaths_firstInput" >
+
+        </com.google.android.material.textfield.TextInputEditText>
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,15 +46,16 @@
             android:text="@string/activityMaths_multiplySymbol"
             android:textSize="@dimen/maths_symbol_size" />
 
-        <TextView
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/activityMaths_secondInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:inputType="number"
             android:layout_gravity="center"
             android:gravity="center"
             android:textSize="@dimen/text_size_default"
-            tools:text="@string/activityMaths_secondInput" />
+            android:hint="@string/activityMaths_secondInput" />
 
 
     </LinearLayout>
