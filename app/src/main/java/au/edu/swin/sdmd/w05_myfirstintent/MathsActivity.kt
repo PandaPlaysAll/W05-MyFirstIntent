@@ -44,14 +44,35 @@ class MathsActivity : AppCompatActivity() {
 
         calculation = updateScreen()
 
+        //ADJUST THIS TO USE A FRAGMENT
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.calculate_answer_section)
+
+        if (currentFragment == null) {
+            newFragment()
+        }
+
+
 
 
         calculateButton.setOnClickListener {
-            val intent = Intent(this, CalculatedMathsActivity::class.java).apply {
-                putExtra(times_tables_values_key_for_putExtra, calculation)
-            }
-            startActivity(intent)
+            val bundle: Bundle = Bundle()
+            bundle.putParcelable(times_tables_values_key_for_putExtra, calculation)
+            newFragment(bundle)
         }
+    }
+
+    fun newFragment(bundle: Bundle? = null) {
+        val fragment = calculatedMathsFragment()
+
+        if (bundle != null) {
+            fragment.arguments = bundle
+        }
+
+
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.calculate_answer_section, fragment)
+            .commit()
     }
 
 
