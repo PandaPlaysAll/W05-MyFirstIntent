@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import org.w3c.dom.Text
 
@@ -55,19 +56,26 @@ class MathsActivity : AppCompatActivity() {
 
 
         calculateButton.setOnClickListener {
-            val bundle: Bundle = Bundle()
+            var bundle = Bundle()
             bundle.putParcelable(times_tables_values_key_for_putExtra, calculation)
-            newFragment(bundle)
+
+            var fragment = calculatedMathsFragment()
+            fragment.arguments = bundle
+
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.calculate_answer_section, fragment)
+                .addToBackStack(null)
+                .commit()
+
+            provider.regenInputs()
+            calculation = updateScreen()
         }
+
     }
 
-    fun newFragment(bundle: Bundle? = null) {
+    fun newFragment() {
         val fragment = calculatedMathsFragment()
-
-        if (bundle != null) {
-            fragment.arguments = bundle
-        }
-
 
         supportFragmentManager
             .beginTransaction()
